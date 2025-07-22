@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HealthWebApp_Authenticated.Models.Article>
+<!-- Form tìm kiếm -->
+@using (Html.BeginForm("Index", "Articles", FormMethod.Get))
+{
+    <p style="margin-top: 20px;">
+        Tìm theo tiêu đề: @Html.TextBox("searchString")
+        <input type="submit" value="Tìm kiếm" class="btn btn-default" />
+    </p>
+}
+
+@{
+    ViewBag.Title = "Bài viết Sức khỏe";
+}
+
+<!-- Thêm style để sửa lỗi lệch bố cục -->
+<style>
+    .row-eq-height {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .thumbnail {
+        height: 100%; /* Đảm bảo các card có cùng chiều cao để không bị lệch */
+    }
+</style>
+
+<div class="jumbotron">
+    <h1>Góc Sức Khỏe</h1>
+    <p class="lead">Cập nhật những thông tin mới và hữu ích nhất về sức khỏe và đời sống.</p>
+    @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+    {
+        <p>@Html.ActionLink("Tạo bài viết mới", "Create", null, new { @class = "btn btn-primary btn-lg" })</p>
+    }
+</div>
+
+<!-- Thêm class "row-eq-height" vào đây -->
+<div class="row row-eq-height">
+    @foreach (var item in Model)
+    {
+        <div class="col-sm-6 col-md-4" style="margin-bottom: 30px;">
+            <div class="thumbnail">
+                <!-- SỬA LỖI: Kiểm tra ImageUrl trước khi dùng -->
+                <img src="@(!string.IsNullOrEmpty(item.ImageUrl) && item.ImageUrl.StartsWith("~/") ? Url.Content(item.ImageUrl) : "https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found")" alt="@item.Title">
+                <div class="caption">
+                    <h3>@Html.ActionLink(item.Title, "Details", new { id = item.Id })</h3>
+                    <p>
+                        @if (item.Content != null && item.Content.Length > 150)
+                        {
+                            @Html.Raw(item.Content.Substring(0, 150)) <span>...</span>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.Content)
+                        }
+                    </p>
+                    <p>
+                        @if (User.IsInRole("Admin") || User.IsInRole("Editor"))
+                        {
+                            @Html.ActionLink("Sửa", "Edit", new { id = item.Id }, new { @class = "btn btn-default" }) <span>|</span>
+                        }
+
+                        @Html.ActionLink("Xem chi tiết", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
+
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <span>|</span> @Html.ActionLink("Xóa", "Delete", new { id = item.Id }, new { @class = "btn btn-danger" })
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>

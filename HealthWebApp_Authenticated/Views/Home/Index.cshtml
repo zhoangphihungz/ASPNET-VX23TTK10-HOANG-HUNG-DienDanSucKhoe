@@ -1,0 +1,43 @@
+﻿@model IEnumerable<HealthWebApp_Authenticated.Models.Article>
+@{
+    ViewBag.Title = "Trang chủ";
+}
+
+<div class="jumbotron">
+    <h1>Trang tin Sức Khỏe</h1>
+    <p class="lead">Nơi cung cấp những thông tin mới và hữu ích nhất về sức khỏe và đời sống cho cộng đồng.</p>
+    <p><a href="@Url.Action("Index", "Articles")" class="btn btn-primary btn-lg">Xem tất cả bài viết &raquo;</a></p>
+</div>
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Bài viết mới nhất</h2>
+        <hr />
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">@Html.ActionLink(item.Title, "Details", "Articles", new { id = item.Id }, null)</h3>
+                </div>
+                <div class="panel-body">
+                    <a href="@Url.Action("Details", "Articles", new { id = item.Id })">
+                        <!-- SỬA LỖI: Thêm điều kiện kiểm tra item.ImageUrl.StartsWith("~/") -->
+                        <img class="img-responsive" src="@(!string.IsNullOrEmpty(item.ImageUrl) && item.ImageUrl.StartsWith("~/") ? Url.Content(item.ImageUrl) : "https://placehold.co/600x400/cccccc/ffffff?text=Image+Not+Found")" alt="@item.Title" />
+                    </a>
+                    <p style="margin-top: 10px;">
+                        @if (item.Content != null && item.Content.Length > 100)
+                        {
+                            @Html.Raw(item.Content.Substring(0, 100)) <span>...</span>
+                        }
+                        else
+                        {
+                            @Html.Raw(item.Content)
+                        }
+                    </p>
+                </div>
+            </div>
+        </div>
+    }
+</div>
