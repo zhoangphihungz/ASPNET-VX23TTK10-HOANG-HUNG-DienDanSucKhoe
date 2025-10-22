@@ -34,5 +34,11 @@ namespace HealthWebApp_Authenticated.Controllers
 
             return View();
         }
+
+        public ActionResult SieuThamTuMayTinh()
+        {
+            ViewBag.Title = "Trò Chơi Siêu Thám Tử Máy Tính";
+            return View();
+        }
     }
 }
