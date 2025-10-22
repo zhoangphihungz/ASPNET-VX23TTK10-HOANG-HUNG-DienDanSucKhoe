@@ -1,0 +1,144 @@
+@{
+    ViewBag.Title = "Trò Chơi \"Siêu Thám Tử Máy Tính\"";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="py-4">
+    <div class="text-center mb-4">
+        <h1 class="display-5 fw-bold text-primary">Trò Chơi "Siêu Thám Tử Máy Tính"</h1>
+        <p class="lead">Hướng dẫn học sinh lớp 5 luyện tập 3 bước tìm kiếm tệp tin nhanh chóng.</p>
+    </div>
+
+    <section class="mb-5">
+        <h2 class="h4 text-success">Mục tiêu học tập</h2>
+        <p>Giúp học sinh ghi nhớ và thực hành thành thạo 3 thao tác quan trọng khi quên vị trí lưu tệp:</p>
+        <ol>
+            <li>Sử dụng ô <strong>Search</strong> trên cửa sổ This PC.</li>
+            <li>Gõ từ khóa hoặc tên tệp cần tìm.</li>
+            <li>Chọn <strong>Open file location</strong> để mở nhanh thư mục chứa tệp.</li>
+        </ol>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="h4 text-success">Thể loại trò chơi</h2>
+        <ul>
+            <li>Mô phỏng thao tác máy tính (Simulation).</li>
+            <li>Trỏ và nhấp chuột (Point-and-Click).</li>
+            <li>Giải quyết vấn đề (Problem Solving).</li>
+        </ul>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="h4 text-success">Cốt truyện và các cảnh chơi</h2>
+        <div class="accordion" id="caseSteps">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneOneHeading">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#sceneOne" aria-expanded="true" aria-controls="sceneOne">
+                        Cảnh 1: Giao nhiệm vụ
+                    </button>
+                </h2>
+                <div id="sceneOne" class="accordion-collapse collapse show" aria-labelledby="sceneOneHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p><strong>Bối cảnh:</strong> Màn hình mô phỏng cửa sổ <em>This PC</em> hiện lên cùng cây thư mục phức tạp.</p>
+                        <p><strong>Nhân vật:</strong> Bạn Nam nhờ người chơi tìm tệp <em>Me con ca Chuoi.docx</em> lưu từ năm lớp 4.</p>
+                        <p><strong>Thử thách:</strong> Người chơi nhận ra việc mở từng thư mục sẽ rất tốn thời gian.</p>
+                        <p><strong>Hộp thoại gợi ý:</strong> "Giúp tớ với! Nháy chuột vào từng thư mục thì lâu lắm. Có cách nào nhanh hơn không nhỉ?"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneTwoHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sceneTwo" aria-expanded="false" aria-controls="sceneTwo">
+                        Cảnh 2: Khám phá công cụ
+                    </button>
+                </h2>
+                <div id="sceneTwo" class="accordion-collapse collapse" aria-labelledby="sceneTwoHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p>Học sinh được phép nháy vào một vài thư mục. Sau 2 lần không thành công, hộp thoại gợi ý xuất hiện:</p>
+                        <p class="fst-italic">"Tìm thế này lâu quá! Hãy thử nhìn lên góc trên bên phải của cửa sổ xem có công cụ đặc biệt nào không?"</p>
+                        <p>Ô tìm kiếm phát sáng để hướng người chơi nháy vào.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneThreeHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sceneThree" aria-expanded="false" aria-controls="sceneThree">
+                        Cảnh 3: Hành động
+                    </button>
+                </h2>
+                <div id="sceneThree" class="accordion-collapse collapse" aria-labelledby="sceneThreeHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p>Con trỏ chuột nhấp nháy trong ô tìm kiếm. Hộp thoại hướng dẫn nhắc học sinh gõ từ khóa "Me con" (chấp nhận một số biến thể).</p>
+                        <p>Sau khi gõ xong, học sinh nháy nút "Tìm kiếm" hoặc nhấn Enter để bắt đầu quá trình tìm file.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneFourHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sceneFour" aria-expanded="false" aria-controls="sceneFour">
+                        Cảnh 4: Kết quả và vấn đề mới
+                    </button>
+                </h2>
+                <div id="sceneFour" class="accordion-collapse collapse" aria-labelledby="sceneFourHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p>Kết quả chỉ ra tệp <em>Me con ca Chuoi.docx</em>. Khi học sinh nháy đúp để mở tệp, thông báo lỗi giả lập nhắc rằng cần mở đúng vị trí thư mục.</p>
+                        <p>Bạn Nam đặt câu hỏi: "Làm sao để biết nó đang ở thư mục nào nhỉ?"</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneFiveHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sceneFive" aria-expanded="false" aria-controls="sceneFive">
+                        Cảnh 5: Giải pháp then chốt
+                    </button>
+                </h2>
+                <div id="sceneFive" class="accordion-collapse collapse" aria-labelledby="sceneFiveHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p>Hộp thoại gợi ý nhắc học sinh nháy chuột phải vào tệp. Trong menu chuột phải, lựa chọn <strong>Open file location</strong> phát sáng nổi bật, buộc người chơi lựa chọn.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="sceneSixHeading">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#sceneSix" aria-expanded="false" aria-controls="sceneSix">
+                        Cảnh 6: Chiến thắng và tổng kết
+                    </button>
+                </h2>
+                <div id="sceneSix" class="accordion-collapse collapse" aria-labelledby="sceneSixHeading" data-bs-parent="#caseSteps">
+                    <div class="accordion-body">
+                        <p>Màn hình chuyển tới thư mục <code>D:\Hoc Tap\Lop 4\Tieng Viet</code> với tệp đã được bôi sáng. Hộp thoại chúc mừng "Siêu Thám Tử" hoàn thành nhiệm vụ.</p>
+                        <p>Một bảng tổng kết nhắc lại 3 bước vàng vừa luyện tập.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <div class="card border-success">
+            <div class="card-header bg-success text-white fw-bold">
+                Tổng kết kiến thức
+            </div>
+            <div class="card-body">
+                <ol class="mb-0">
+                    <li>Nháy vào ô <strong>Tìm kiếm (Search)</strong>.</li>
+                    <li>Gõ từ khóa hoặc tên tệp cần tìm.</li>
+                    <li>Nháy chuột phải và chọn <strong>Open file location</strong>.</li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="mb-5">
+        <h2 class="h4 text-success">Gợi ý triển khai trong lớp học</h2>
+        <ul>
+            <li>Sử dụng bảng tương tác hoặc máy chiếu để cả lớp theo dõi tiến trình của "Siêu Thám Tử".</li>
+            <li>Chia lớp thành từng nhóm nhỏ, cho các nhóm thay phiên thực hành thao tác trên máy.</li>
+            <li>Sau trò chơi, yêu cầu học sinh tự tìm một tệp khác để củng cố kỹ năng.</li>
+        </ul>
+    </section>
+
+    <div class="alert alert-info" role="alert">
+        Trò chơi nhấn mạnh tư duy tìm kiếm thông minh thay vì làm việc thủ công, giúp học sinh tự tin hơn khi quản lý dữ liệu trên máy tính.
+    </div>
+</div>
